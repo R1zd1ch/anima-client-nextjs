@@ -1,11 +1,11 @@
 import { useMutation } from '@tanstack/react-query'
-import { authService } from '../services'
+import { oauthByProvider as oauthByProviderRequest } from '../api'
 
 export function useAuthSocialMutation() {
 	const { mutateAsync, isPending: isLoadingOauth } = useMutation({
 		mutationKey: ['oauth by provider'],
 		mutationFn: async (provider: 'google' | 'yandex') =>
-			await authService.oauthByProvider(provider),
+			await oauthByProviderRequest(provider),
 	})
 
 	return {

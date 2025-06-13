@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
-import { authService } from '../services'
+import { register as registerRequest } from '../api'
 import { RegisterSchemaType } from '../schemas'
-import { toastMessageHandler } from '@/shared/utils'
+import { toastMessageHandler } from '@/src/shared/utils'
 import { toast } from 'sonner'
 
 export function useRegisterMutation() {
@@ -13,7 +13,7 @@ export function useRegisterMutation() {
 		}: {
 			values: RegisterSchemaType
 			recaptcha: string
-		}) => authService.register(values, recaptcha),
+		}) => registerRequest(values, recaptcha),
 		onSuccess(data: any) {
 			toastMessageHandler(data)
 		},

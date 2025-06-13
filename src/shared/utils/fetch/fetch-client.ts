@@ -81,7 +81,7 @@ export class FetchClient {
 	}
 
 	public get<T>(endpoint: string, options: Omit<RequestOptions, 'body'> = {}) {
-		return this.request<T>(endpoint, 'GET', options)
+		return this.request<{ data: T }>(endpoint, 'GET', options)
 	}
 
 	public post<T>(

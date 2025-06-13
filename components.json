@@ -5,15 +5,15 @@
 	"tsx": true,
 	"tailwind": {
 		"config": "",
-		"css": "src/shared/styles/globals.css",
+		"css": "@/src/_app/styles/globals.css",
 		"baseColor": "neutral",
 		"cssVariables": true,
 		"prefix": ""
 	},
 	"aliases": {
-		"components": "@/shared/components",
-		"utils": "@/shared/utils",
-		"ui": "@/shared/components/ui"
+		"components": "@/src/shared/components",
+		"utils": "@/src/shared/utils",
+		"ui": "@/src/shared/components/ui"
 	},
 	"iconLibrary": "lucide"
 }

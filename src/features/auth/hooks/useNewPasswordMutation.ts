@@ -2,14 +2,16 @@ import { useMutation } from '@tanstack/react-query'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { toast } from 'sonner'
 
-import { toastMessageHandler } from '@/shared/utils'
+import { toastMessageHandler } from '@/src/shared/utils'
 
 import { NewPasswordType } from '../schemas'
-import { passwordRecoveryService } from '../services'
+import { newPassword as newPasswordRequest } from '../api'
 
 export function useNewPasswordMutation() {
 	const router = useRouter()
 	const searchParams = useSearchParams()
+
+	if (!searchParams) return null
 
 	const token = searchParams.get('token')
 
@@ -21,7 +23,7 @@ export function useNewPasswordMutation() {
 		}: {
 			values: NewPasswordType
 			recaptcha: string
-		}) => passwordRecoveryService.new(values, token, recaptcha),
+		}) => newPasswordRequest(values, token, recaptcha),
 		onSuccess() {
 			toast.success('Пароль успешно изменён', {
 				description: 'Теперь вы можете войти в свой аккаунт.',

@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
-import { authService } from '../services'
+import { login as loginRequest } from '../api'
 import { LoginSchemaType } from '../schemas'
-import { toastMessageHandler } from '@/shared/utils'
+import { toastMessageHandler } from '@/src/shared/utils'
 import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
 import { Dispatch, SetStateAction } from 'react'
@@ -19,7 +19,7 @@ export function useLoginMutation(
 		}: {
 			values: LoginSchemaType
 			recaptcha: string
-		}) => authService.login(values, recaptcha),
+		}) => loginRequest(values, recaptcha),
 		onSuccess(data: any) {
 			if (data.message) {
 				toastMessageHandler(data)

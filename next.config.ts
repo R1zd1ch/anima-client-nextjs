@@ -16,7 +16,20 @@ const nextConfig: NextConfig = {
 				protocol: 'https',
 				hostname: 'avatars.yandex.net',
 			},
+			{
+				protocol: 'https',
+				hostname: 'placehold.co',
+			},
+			{
+				protocol: 'https',
+				hostname: 'fakeimg.pl',
+			},
+			{
+				hostname: 'shikimori.one',
+				protocol: 'https',
+			},
 		],
+		dangerouslyAllowSVG: true,
 	},
 }
 
